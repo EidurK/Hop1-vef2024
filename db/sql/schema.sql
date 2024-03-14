@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS public.users (
   admin BOOLEAN DEFAULT FALSE,
   email VARCHAR(255) UNIQUE NOT NULL,
   name VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS public.tasks (
@@ -15,3 +15,4 @@ CREATE TABLE IF NOT EXISTS public.tasks (
   user_id INTEGER NOT NULL,
   FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+/*Hop1Database*/
