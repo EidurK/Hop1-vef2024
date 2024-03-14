@@ -5,5 +5,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('login');
 });
+router.post('/', (req, res)=>{
+  const{ email, password} =req.body;
+  console.log(email);
+  console.log(password);
+})
 
 export default router;
