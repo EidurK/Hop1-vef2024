@@ -1,5 +1,7 @@
 import express from 'express';
 import {end, query} from '../src/lib/db.js';
+import jwt  from 'jsonwebtoken';
+const{JWT_SECRET: secret_key } = process.env;
 var router = express.Router();
 
 /* GET users listing. */
@@ -10,13 +12,19 @@ router.get('/', function(req, res, next) {
 router.post('/', async (req, res)=>{
   const{ email, password} =req.body;
   try{
- const queryText = 'SELECT password FROM users WHERE email = $1';
+    const queryText = 'SELECT * FROM users WHERE email = $1';
     const values = [email];
     const response = await query(queryText, values);
+
     if (response.rows.length > 0) {
-      const Submittedpassword = response.rows[0].password;
-      if(Submittedpassword == password){
-        res.redirect('/home');
+      const user = response.rows[0];
+      if(user.password === password){
+        const token = jwt.sign(
+          { email: user.email, id: user.id },
+          secret_key,
+          { expiresIn: '1h' }
+        );
+        res.json({token});
       }else{
         res.redirect('/');
       }

@@ -15,4 +15,4 @@ CREATE TABLE IF NOT EXISTS public.tasks (
   user_id INTEGER NOT NULL,
   FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-/*Hop1Database*/
+/*hop1database*/
