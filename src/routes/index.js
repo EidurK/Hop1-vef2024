@@ -23,6 +23,6 @@ const allRoutes = (req, res) => {
 
 };
 
-indexRouter.post('/', allRoutes);
+indexRouter.get('/', allRoutes);
 
 export default indexRouter;
