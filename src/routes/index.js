@@ -1,24 +1,28 @@
 import express from 'express';
-import {query} from '../src/lib/db.js'
 
-var router = express.Router();
+const indexRouter = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  userRoute();
-  res.render('index', { title: 'Express' });
-});
+const allRoutes = (req, res) => {
+    const returningString = ''
+    + 'Welcome to the API\n'
+    + 'The following are the routes available:\n'
+    +'-----------------------------------------------------------------------------------\n'
+    + 'The following do not require any authorization\n\n'
 
-async function userRoute(req, res){
-  const user = await query('SELECT name FROM users');
-  console.log(user)
+    + 'POST /login (username and password in body, returned jwt token should be copied and used)\n'
+    + 'POST /photos (photo_url in body, store the id you get returned) \n'
+    + 'GET /photos?public_id=... (set query param photo_url as public_id from post /photos)\n'
+    +'-----------------------------------------------------------------------------------\n'
+    + 'The following must have a valid jwt token in the Authorization header as bearer token\n\n'
 
-}
+    + 'POST /tasks (body must include title with the possibility of description as well)\n'
+    + 'GET /tasks (returns all tasks)\n'
+    + 'PATCH /tasks (body must include id and can include title and or description)\n'
+    + 'DELETE /tasks (body must include id)\n'
+    res.status(200).send(returningString);
 
-async function tasksRoute(req, res){
-  const tasks = await query('SELECT * FROM users');
-  console.log(tasks);
+};
 
-}
+indexRouter.post('/', allRoutes);
 
-export default router;
+export default indexRouter;

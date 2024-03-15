@@ -1,4 +1,5 @@
 import tokenOwner from '../tokens/verify.js';
+import { deleteTaskInDb } from '../../utils/tasks.js';
 
 export default async function deleteTask(req, res) {
   const bearerToken = req.headers.authorization;
@@ -23,5 +24,5 @@ export default async function deleteTask(req, res) {
 
   deleteTaskInDb(id, userID);
 
-  res.status(200).json(tasks);
+  res.status(200).json({ message: 'Task Deleted' });
 }

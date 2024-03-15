@@ -1,4 +1,5 @@
 import tokenOwner from '../tokens/verify.js';
+import { updateTaskInDb } from '../../utils/tasks.js';
 
 export default async function updateTask(req, res) {
   const bearerToken = req.headers.authorization;
@@ -20,15 +21,9 @@ export default async function updateTask(req, res) {
     return;
   }
 
-  const { title, description, due_date, status } = req.body;
-  console.log('id', id);
-  console.log('userID', userID);
-  console.log('title', title);
-  console.log('description', description);
-  console.log('due_date', due_date);
-  console.log('stauts', status);
+  const { title, description } = req.body;
 
-  updateTaskInDb(id, userID, title, description, due_date, status)
+  updateTaskInDb(id, userID, title, description)
     .then(() => {
       res.status(201).json({ message: 'Task Updated' });
     })

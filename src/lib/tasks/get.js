@@ -1,4 +1,5 @@
 import tokenOwner from '../tokens/verify.js';
+import { userTasks } from '../../utils/tasks.js';
 
 export default async function getTasks(req, res) {
   const bearerToken = req.headers.authorization;
@@ -14,7 +15,7 @@ export default async function getTasks(req, res) {
       return;
     }
 
-    const tasks = getTasks(userID);
+    const tasks = await userTasks(userID);
 
     res.status(200).json(tasks);
 }

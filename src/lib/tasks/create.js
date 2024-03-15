@@ -1,4 +1,5 @@
 import tokenOwner from '../tokens/verify.js';
+import { createTaskInDb } from '../../utils/tasks.js';
 
 export default async function createTask(req, res) {
   const bearerToken = req.headers.authorization;
@@ -19,14 +20,9 @@ export default async function createTask(req, res) {
     res.status(400).json({ error: 'No title sent' });
     return;
   }
-  const { description, due_date, status } = req.body;
-  console.log('userID', userID);
-  console.log('title', title);
-  console.log('description', description);
-  console.log('due_date', due_date);
-  console.log('stauts', status);
+  const { description } = req.body;
 
-  createTaskInDb(userID, title, description, due_date, status)
+  createTaskInDb(userID, title, description)
     .then(() => {
       res.status(201).json({ message: 'Task created' });
     })
