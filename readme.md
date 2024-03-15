@@ -2,17 +2,17 @@
 
 1. setja upp .env með eftirfarandi breytum:
 
-   DATABASE_URL=postgres://<username>:<password>@<host>/<database
+   DATABASE_URL=
 
-   TOKEN_SECRET=xxxxxxxxxxxxxxxxxxxxx
+   TOKEN_SECRET=
 
-   PORT=3000
+   PORT=
 
-   CLOUDINARY_CLOUD_NAME=xxxxxxxxxxxx
+   CLOUDINARY_CLOUD_NAME=
 
-   CLOUDINARY_API_KEY=xxxxxxxxxxxxxxx
+   CLOUDINARY_API_KEY=
 
-   CLOUDINARY_API_SECRET=xxxxxxxxxxxx
+   CLOUDINARY_API_SECRET=
 
 3. keyra npm install
 4. keyra npm run setup
