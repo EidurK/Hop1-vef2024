@@ -34,6 +34,8 @@
    CLOUDINARY_API_SECRET=
 
 2. keyra npm install
+3. keyra npm run setup
+4. keyra npm run test
 
 # Dæmi um köll í vefþjónustu m.v. test gögn.
 
