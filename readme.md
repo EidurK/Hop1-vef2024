@@ -18,6 +18,11 @@
 3. keyra npm run setup
 4. keyra npm run dev
 
+# Test
+
+Test voru run-uð á server fyrir upload, gegnum endapunkta ekki beint á föll.
+Lint var runnað í github action í hver skipti sem uploadað var á main.
+
 # Upplýsingar um hvernig á að keyra test.
 1. setja upp .env með eftirfarandi breytum:
 
