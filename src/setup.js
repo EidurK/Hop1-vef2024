@@ -16,7 +16,7 @@ export async function dropSchema(dropFile = DROP_SCHEMA_FILE) {
   return query(data.toString('utf-8'));
 }
 
-async function create() {
+export async function create() {
   const drop = await dropSchema();
 
   if (drop) {
