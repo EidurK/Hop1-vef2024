@@ -32,6 +32,9 @@
    CLOUDINARY_API_KEY=
 
    CLOUDINARY_API_SECRET=
+
+2. keyra npm install
+
 # Dæmi um köll í vefþjónustu m.v. test gögn.
 
 1. POST á /photos með body: {"photo_url": "https://www.mbl.is/a/img/haus_new/mbl.svg"}
