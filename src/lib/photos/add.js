@@ -9,9 +9,9 @@ export default async function addPhoto(req, res) {
         return;
     }
     cloudinary.config({
-    cloud_name: CLOUDINARY_CLOUD_NAME,
-    api_key: CLOUDINARY_API_KEY,
-    api_secret: CLOUDINARY_API_SECRET
+        cloud_name: CLOUDINARY_CLOUD_NAME,
+        api_key: CLOUDINARY_API_KEY,
+        api_secret: CLOUDINARY_API_SECRET
     });
 
     const publicID = Math.random().toString(36).substring(2, 18);
