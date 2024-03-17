@@ -18,6 +18,8 @@
 3. keyra npm run setup
 4. keyra npm run dev
 
+# Upplýsingar um hvernig á að keyra test.
+
 # Dæmi um köll í vefþjónustu m.v. test gögn.
 
 1. POST á /photos með body: {"photo_url": "https://www.mbl.is/a/img/haus_new/mbl.svg"}
