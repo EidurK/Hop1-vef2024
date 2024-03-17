@@ -4,7 +4,7 @@ const indexRouter = express.Router();
 
 const allRoutes = (req, res) => {
   const returningString =
-    'Welcome to the API\n' +
+    'Welcome to the Tasks API\n' +
     'The following are the routes available:\n' +
     '-----------------------------------------------------------------------------------\n' +
     'The following do not require any authorization\n\n' +
