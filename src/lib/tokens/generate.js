@@ -31,6 +31,6 @@ export async function generateToken(req, res) {
   if (!addTokenToDB(token)){
     res.status(500).json({ error: 'Database error' });
     return;
-  } 
+  }
   res.status(200).json({ token });
 }

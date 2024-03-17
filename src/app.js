@@ -7,7 +7,7 @@ import authRouter from './routes/auth.js';
 import photosRouter from './routes/photos.js';
 import indexRouter from './routes/index.js';
 
-const {env} = process;
+
 
 const app = express();
 
@@ -20,10 +20,5 @@ app.use(tasksRouter);
 app.use(authRouter);
 app.use(photosRouter);
 app.use(indexRouter);
-
-app.listen(env.PORT, () => {
-  console.info(`Server running at http://localhost:${env.PORT}/`);
-});
-
 export default app;
 

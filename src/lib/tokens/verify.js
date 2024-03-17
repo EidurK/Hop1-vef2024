@@ -14,5 +14,5 @@ export default async function tokenOwner(token) {
   } catch (err) {
     console.error(err);
   }
-  return false;
+  return null;
 }
