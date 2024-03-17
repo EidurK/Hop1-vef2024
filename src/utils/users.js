@@ -15,7 +15,7 @@ async function getUserIdByAuth(username, password) {
 
 async function createUser(username, password) {
   const result = await query('INSERT INTO users(username, password) VALUES($1, $2) RETURNING id',
-   [username, password]);
+    [username, password]);
   if (!result) {
     return null;
   }
@@ -25,4 +25,13 @@ async function createUser(username, password) {
   return result.rows[0].id;
 }
 
-export { getUserIdByAuth, createUser };
+async function doesUserAlreadyExist(username){
+  const result = await query('SELECT * FROM users WHERE username = $1;', [username]);
+  if (result.rows.length === 0) {
+    return false;
+  }
+  return true;
+
+}
+
+export { getUserIdByAuth, createUser, doesUserAlreadyExist };

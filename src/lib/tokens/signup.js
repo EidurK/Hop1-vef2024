@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { createUser } from '../../utils/users.js';
+import { createUser, doesUserAlreadyExist } from '../../utils/users.js';
 
 export async function signUp(req, res) {
   const { username, password } = req.body;

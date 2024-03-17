@@ -13,11 +13,10 @@ export async function createSchema(schemaFile = SCHEMA_FILE) {
 
 export async function dropSchema(dropFile = DROP_SCHEMA_FILE) {
   const data = await readFile(dropFile);
-
   return query(data.toString('utf-8'));
 }
 
-async function create() {
+export async function create() {
   const drop = await dropSchema();
 
   if (drop) {
