@@ -26,7 +26,7 @@ export async function generateToken(req, res) {
     return;
   }
 
-  const token = jwt.sign({ user_id: userID }, secretKey, { expiresIn: '1h' });
+  const token = jwt.sign({ user_id: userID }, secretKey, { expiresIn: '24h' });
 
   if (!addTokenToDB(token)){
     res.status(500).json({ error: 'Database error' });
