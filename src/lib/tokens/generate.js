@@ -26,9 +26,11 @@ export async function generateToken(req, res) {
     return;
   }
 
-  const token = jwt.sign({ user_id: userID }, secretKey, { expiresIn: '14d' });
+  const token = jwt.sign({ user_id: userID }, secretKey, {
+    expiresIn: '14d',
+  });
 
-  if (!addTokenToDB(token)){
+  if (!(await addTokenToDB(token))) {
     res.status(500).json({ error: 'Database error' });
     return;
   }
